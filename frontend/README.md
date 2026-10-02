@@ -1,16 +1,130 @@
-# React + Vite
+# 🚀 Team Availability Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A real-time team availability management system that allows teams to monitor member availability, update statuses, search members, and filter team members by different attributes.
 
-Currently, two official plugins are available:
+## 📌 Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The **Team Availability Tracker** is a full-stack web application designed to help teams quickly understand who is available, busy, or away.
 
-## React Compiler
+The application provides a centralized dashboard where team members can be viewed along with their:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Availability status
+- Role
+- Timezone
+- Last updated time
 
-## Expanding the Oxlint configuration
+Team member statuses can be updated directly from the dashboard, and the application automatically refreshes team data periodically.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+## ✨ Features
+
+### 👥 Team Dashboard
+- Displays all team members
+- Shows total number of members
+- Displays Available, Busy, and Away counts
+- Clean and responsive dashboard
+
+### 🟢 Availability Management
+Team members can have one of three statuses:
+
+- 🟢 Available
+- 🔴 Busy
+- 🟡 Away
+
+Status changes are saved to the database and reflected immediately on the dashboard.
+
+### 🔎 Search
+Search team members by:
+
+- Name
+- Role
+
+### 🎯 Status Filter
+Filter team members by:
+
+- All Status
+- Available
+- Busy
+- Away
+
+### 💼 Role Filter
+Filter team members by:
+
+- Design
+- Product
+- Engineering
+- QA
+
+### 🌍 Timezone Filter
+Filter members based on their timezone:
+
+- Europe/London
+- Asia/Kolkata
+- America/New_York
+
+### 🔄 Refresh
+A manual refresh button allows users to fetch the latest team information.
+
+The dashboard also automatically refreshes team data periodically.
+
+### 🕐 Last Updated
+Each team member displays when their availability information was last updated.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- React
+- Vite
+- JavaScript
+- CSS
+
+### Backend
+
+- Node.js
+- Express.js
+- CORS
+- dotenv
+
+### Database
+
+- Supabase
+- PostgreSQL
+
+### Development Tools
+
+- Visual Studio Code
+- Git
+- GitHub
+- PowerShell
+
+---
+
+## 🏗️ Project Architecture
+
+```text
+Team Availability Tracker
+│
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── main.jsx
+│   │
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.js
+│
+├── backend/
+│   ├── index.js
+│   ├── seed.js
+│   ├── team_availability_seed.json
+│   ├── package.json
+│   └── .gitignore
+│
+├── .gitignore
+└── README.md
