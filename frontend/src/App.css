@@ -1,0 +1,900 @@
+/* =========================================================
+   TEAM AVAILABILITY TRACKER
+   Professional Dashboard UI
+   ========================================================= */
+
+/* ---------- Global ---------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      #eef2ff 0%,
+      transparent 35%
+    ),
+    #f5f7fb;
+
+  color: #111827;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+
+/* ---------- Main App ---------- */
+
+.app {
+  min-height: 100vh;
+  padding: 42px 32px 60px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.header h1 {
+  font-size: 34px;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+  color: #111827;
+
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* ---------- Live Badge ---------- */
+
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 10px 17px;
+
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e5e7eb;
+
+  border-radius: 999px;
+
+  color: #374151;
+  font-size: 14px;
+  font-weight: 650;
+
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.05);
+
+  white-space: nowrap;
+}
+
+.live-badge span {
+  width: 9px;
+  height: 9px;
+
+  background: #22c55e;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.12);
+
+  animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(34, 197, 94, 0.35);
+  }
+
+  70% {
+    box-shadow:
+      0 0 0 6px rgba(34, 197, 94, 0);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.stats {
+  max-width: 1200px;
+  margin: 0 auto 28px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.stat-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 21px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+
+/* ---------- Statistic Icon ---------- */
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #f3f4f6;
+
+  font-size: 23px;
+
+  flex-shrink: 0;
+}
+
+.stat-card h3 {
+  font-size: 27px;
+  font-weight: 750;
+
+  line-height: 1;
+
+  margin-bottom: 7px;
+
+  color: #111827;
+}
+
+.stat-card p {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 550;
+}
+
+
+/* ---------- Statistic Accent ---------- */
+
+.available-card {
+  border-left: 4px solid #22c55e;
+}
+
+.available-card .stat-icon {
+  background: #ecfdf5;
+}
+
+.busy-card {
+  border-left: 4px solid #ef4444;
+}
+
+.busy-card .stat-icon {
+  background: #fef2f2;
+}
+
+.away-card {
+  border-left: 4px solid #eab308;
+}
+
+.away-card .stat-icon {
+  background: #fefce8;
+}
+
+
+/* =========================================================
+   SEARCH / FILTER / REFRESH
+   ========================================================= */
+
+.controls {
+  max-width: 1200px;
+  margin: 0 auto 10px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.controls input,
+.controls select {
+  height: 48px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d9dee8;
+
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #374151;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.controls input {
+  flex: 1;
+  min-width: 180px;
+}
+
+.controls select {
+  min-width: 145px;
+
+  cursor: pointer;
+}
+
+.controls input::placeholder {
+  color: #9ca3af;
+}
+
+.controls input:focus,
+.controls select:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+
+/* ---------- Refresh Button ---------- */
+
+.refresh-button {
+  height: 48px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 5px 14px rgba(79, 70, 229, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.refresh-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 18px rgba(79, 70, 229, 0.27);
+}
+
+.refresh-button:active {
+  transform: translateY(0);
+}
+
+.refresh-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* ---------- Sync Information ---------- */
+
+.sync-info {
+  max-width: 1200px;
+
+  margin: 0 auto 25px;
+
+  text-align: right;
+
+  color: #9ca3af;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   TEAM GRID
+   ========================================================= */
+
+.team-grid {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   MEMBER CARD
+   ========================================================= */
+
+.member-card {
+  position: relative;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 17px;
+
+  padding: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.045);
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.member-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #818cf8
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #dfe2ea;
+
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.09);
+}
+
+.member-card:hover::before {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MEMBER TOP
+   ========================================================= */
+
+.member-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+
+/* ---------- Avatar ---------- */
+
+.avatar {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #818cf8
+    );
+
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 750;
+
+  box-shadow:
+    0 5px 12px rgba(99, 102, 241, 0.2);
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 11px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+.status.available {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status.busy {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.status.away {
+  background: #fef3c7;
+  color: #a16207;
+}
+
+
+/* =========================================================
+   MEMBER DETAILS
+   ========================================================= */
+
+.member-card h2 {
+  color: #111827;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  letter-spacing: -0.2px;
+
+  margin-bottom: 5px;
+}
+
+.role {
+  color: #6b7280;
+
+  font-size: 14px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   STATUS CONTROL BUTTONS
+   ========================================================= */
+
+.status-controls {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 7px;
+
+  margin-bottom: 20px;
+}
+
+.status-controls button {
+  min-height: 38px;
+
+  padding: 7px 5px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 9px;
+
+  background: #f9fafb;
+
+  color: #6b7280;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.status-controls button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* ---------- Available Button ---------- */
+
+.available-button:hover,
+.available-button.active {
+  background: #ecfdf5;
+
+  color: #15803d;
+
+  border-color: #86efac;
+}
+
+
+/* ---------- Busy Button ---------- */
+
+.busy-button:hover,
+.busy-button.active {
+  background: #fef2f2;
+
+  color: #b91c1c;
+
+  border-color: #fca5a5;
+}
+
+
+/* ---------- Away Button ---------- */
+
+.away-button:hover,
+.away-button.active {
+  background: #fefce8;
+
+  color: #a16207;
+
+  border-color: #fde047;
+}
+
+
+/* =========================================================
+   MEMBER INFORMATION
+   ========================================================= */
+
+.member-info {
+  border-top: 1px solid #eef0f4;
+
+  padding-top: 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  color: #6b7280;
+
+  font-size: 12.5px;
+}
+
+.member-info div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.member-info div span:first-child {
+  width: 20px;
+
+  text-align: center;
+
+  flex-shrink: 0;
+}
+
+.member-info div span:last-child {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   LOADING / ERROR / EMPTY MESSAGE
+   ========================================================= */
+
+.message {
+  max-width: 1200px;
+
+  margin: 55px auto;
+
+  padding: 30px;
+
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 16px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+}
+
+.error {
+  color: #dc2626;
+
+  background: #fef2f2;
+
+  border-color: #fecaca;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.2);
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+/* ---------- Large Tablets ---------- */
+
+@media (max-width: 1100px) {
+  .team-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ---------- Tablets ---------- */
+
+@media (max-width: 800px) {
+  .app {
+    padding: 30px 22px 50px;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    font-size: 29px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+  }
+
+  .controls input {
+    flex-basis: 100%;
+  }
+
+  .controls select {
+    flex: 1;
+  }
+
+  .refresh-button {
+    flex: 1;
+  }
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 600px) {
+  .app {
+    padding: 22px 15px 40px;
+  }
+
+  .header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+  }
+
+  .header h1 {
+    font-size: 25px;
+
+    letter-spacing: -0.5px;
+  }
+
+  .header p {
+    font-size: 14px;
+  }
+
+  .live-badge {
+    align-self: flex-start;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+  }
+
+  .stat-card {
+    padding: 18px;
+  }
+
+  .controls {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 10px;
+  }
+
+  .controls input,
+  .controls select,
+  .refresh-button {
+    width: 100%;
+
+    flex: none;
+  }
+
+  .sync-info {
+    text-align: left;
+
+    margin-top: 10px;
+
+    margin-bottom: 20px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .member-card {
+    padding: 19px;
+  }
+
+  .status-controls {
+    gap: 6px;
+  }
+
+  .status-controls button {
+    font-size: 10.5px;
+  }
+}
+
+
+/* ---------- Very Small Screens ---------- */
+
+@media (max-width: 380px) {
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .stat-card h3 {
+    font-size: 24px;
+  }
+
+  .member-card h2 {
+    font-size: 18px;
+  }
+
+  .status-controls button {
+    padding: 6px 3px;
+
+    font-size: 9.5px;
+  }
+}
